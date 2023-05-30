@@ -5,11 +5,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Schedule {
-    // 19. CRON expression for run every hour but only on even-numbered days of the month
-    @Scheduled(cron = "0 0 * */2 * *")
+    // 20. CRON expression for run every 5 minutes but only between 9:00 AM and 6:00 PM on weekends
+    @Scheduled(cron = "0 */5 9-18 ? * FRI,SAT")
     public void runJob() {
         System.out.println("Cron job is running...");
     }
+
+//    // 19. CRON expression for run every hour but only on even-numbered days of the month
+//    @Scheduled(cron = "0 0 * */2 * *")
+//    public void runJob() {
+//        System.out.println("Cron job is running...");
+//    }
 
 //    // 18. CRON expression for run at 11:30 PM every Friday the 13th
 //    @Scheduled(cron = "0 30 23 13 * FRI")
