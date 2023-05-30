@@ -5,11 +5,17 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Schedule {
-    // 26. CRON expression for run at 4:30 PM on the 1st and 15th days of every month
-    @Scheduled(cron = "0 30 16 1,15 * *")
+    // 27. CRON expression for run every 10 minutes on weekdays between 9:00 AM and 5:00 PM
+    @Scheduled(cron = "0 */10 9-16 * * SUN-THU")
     public void runJob() {
         System.out.println("Cron job is running...");
     }
+
+//    // 26. CRON expression for run at 4:30 PM on the 1st and 15th days of every month
+//    @Scheduled(cron = "0 30 16 1,15 * *")
+//    public void runJob() {
+//        System.out.println("Cron job is running...");
+//    }
 
 //    // 25. CRON expression for run at the bottom of every hour between 6:00 PM and midnight on weekdays
 //    @Scheduled(cron = "0 30 18-23 * * SUN-THU")
